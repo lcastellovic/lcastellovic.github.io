@@ -1,0 +1,125 @@
+:root {
+    --bg-body: #121214;
+    --bg-container: #1a1a1e;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --border-color: #2e2e33;
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+    --btn-hover: #e4e4e7;
+    --accent-green: #22c55e;
+    --card-bg: #27272a;
+    --card-hover: #2f2f35;
+    --input-bg: #27272a;
+    --table-header: #27272a;
+}
+
+.light-mode {
+    --bg-body: #f4f7f6;
+    --bg-container: #ffffff;
+    --text-main: #111111;
+    --text-muted: #71717a;
+    --border-color: #e4e4e7;
+    --btn-bg: #000000;
+    --btn-text: #ffffff;
+    --btn-hover: #27272a;
+    --accent-green: #16a34a;
+    --card-bg: #f4f4f5;
+    --card-hover: #e9e9ee;
+    --input-bg: #ffffff;
+    --table-header: #f4f4f5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    background-color: var(--bg-container);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    position: relative;
+    transition: background-color 0.3s;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.05), transparent 28%);
+    pointer-events: none;
+}
+
+.theme-toggle,
+.back-link {
+    position: absolute;
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: auto;
+    margin: 0;
+    z-index: 1;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.theme-toggle:hover,
+.back-link:hover {
+    background-color: var(--card-bg);
+    border-color: var(--text-muted);
+    transform: translateY(-1px);
+}
+
+.theme-toggle {
+    top: 20px;
+    right: 20px;
+}
+
+.back-link {
+    top: 20px;
+    left: 20px;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 14px;
+    }
+
+    .container {
+        padding: 24px;
+    }
+
+    .theme-toggle {
+        top: 16px;
+        right: 16px;
+    }
+
+    .back-link {
+        top: 16px;
+        left: 16px;
+    }
+}
